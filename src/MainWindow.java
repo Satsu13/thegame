@@ -10,6 +10,11 @@ public class MainWindow extends JFrame {
         super();
         contentPane = new JPanel();
         this.setContentPane(contentPane);
+        goToMainMenu();
+    }
+
+    public void goToMainMenu() {
+
     }
 
 
