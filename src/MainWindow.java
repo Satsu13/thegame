@@ -9,6 +9,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
         super();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         try {
             PropertiesManager.load();

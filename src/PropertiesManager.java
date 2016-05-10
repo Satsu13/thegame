@@ -9,14 +9,7 @@ import java.util.Properties;
  * Created by Satsu on 5/9/2016.
  */
 public class PropertiesManager {
-    public static final String DEFAULTSAVEPATH = System.getenv("APPDATA") + File.separator + "thegame";
-    static {
-        System.out.println(DEFAULTSAVEPATH);
-        File appDir = new File(DEFAULTSAVEPATH);
-        if(!appDir.exists()) {
-            appDir.mkdir();
-        }
-    }
+    public static final String DEFAULTSAVEPATH = Config.WORKINGDIR + File.separator + "properties.properties";
 
     private static Properties properties = new Properties();
 
@@ -27,6 +20,7 @@ public class PropertiesManager {
     }
 
     public static void save(String filepath) throws IOException {
+        System.out.println(filepath);
         properties.store(new FileOutputStream(new File(filepath)), "");
     }
 
