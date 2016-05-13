@@ -37,6 +37,30 @@ public class PropertiesManager {
         setResolution(new Dimension(1024, 768));
     }
 
+    public static void loadAndValidateProperties() throws IOException {
+        loadAndValidateProperties(DEFAULTSAVEPATH);
+    }
+
+    /**
+     * Loads the properties file at the given path and validates it, formatting and saving it as a default
+     * property file if it is found to be invalid.
+     */
+    public static void loadAndValidateProperties(String path) throws IOException {
+        try {
+            PropertiesManager.load(path);
+        } catch (IOException e) {
+            PropertiesManager.loadDefaultProperties();
+            PropertiesManager.save(path);
+            return;
+        }
+        if(!(
+                properties.containsKey("resolution") &&
+                true &&
+                true)) {
+            loadDefaultProperties();
+        }
+    }
+
     @NotNull
     public static void setResolution(Dimension resolution) {
         String resolutionString = resolution.width + " " + resolution.height;
